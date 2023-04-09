@@ -7,16 +7,16 @@ import Profile from "./pages/Profile";
 import { loadData } from "./utils/localStorage";
 
 function App() {
+  // State management
   const [page, setPage] = useState(PAGES.GENERATOR);
   const [openAIKey, setOpenAIKey] = useState();
   const [resume, setResume] = useState();
 
+  // Load data from local storage on component mount
   useEffect(() => {
     const fetchLocalData = async () => {
       const localResume = await loadData("resume");
       const localOpenAIKey = await loadData("openAIKey");
-
-      console.log("localOpenAIKey", localOpenAIKey);
 
       setResume(localResume);
       setOpenAIKey(localOpenAIKey);
@@ -25,6 +25,7 @@ function App() {
     fetchLocalData();
   }, []);
 
+  // Render components based on the current page
   switch (page) {
     case PAGES.GENERATOR:
       return (

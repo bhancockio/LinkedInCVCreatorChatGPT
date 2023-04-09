@@ -13,7 +13,7 @@
     "default_popup": "index.html",
     "default_title": "Open the popup"
   },
-  "host_permissions": ["https://*/", "https://www.linkedin.com/*"],
+  "host_permissions": ["https://www.linkedin.com/*"],
   "background": {
     "service_worker": "background.js"
   }
