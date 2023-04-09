@@ -1,9 +1,8 @@
-/*global chrome*/
-
 import React from "react";
 import { MdArrowBack } from "react-icons/md";
 import { PAGES } from "../utils/pages";
 import { ToastContainer, toast } from "react-toastify";
+import { saveData } from "../utils/localStorage";
 
 function Profile({ setPage, setOpenAIKey, setResume, resume, openAIKey }) {
   const handleSubmt = (e) => {
@@ -13,11 +12,10 @@ function Profile({ setPage, setOpenAIKey, setResume, resume, openAIKey }) {
     const updatedOpenAIKey = formData.get("openAIKey");
 
     try {
-      chrome.storage.local.set({
-        resume: updatedResume,
-        openAIKey: updatedOpenAIKey,
-      });
       setResume(updatedResume);
+      saveData("resume", updatedResume);
+
+      saveData("openAIKey", updatedOpenAIKey);
       setOpenAIKey(updatedOpenAIKey);
       toast.success("Saved successfully!", {
         position: "top-center",

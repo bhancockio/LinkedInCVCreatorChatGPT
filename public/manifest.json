@@ -3,7 +3,7 @@
   "name": "LinkedIn Cover Letter Generator",
   "version": "1.0.0",
   "description": "A Chrome extension to generate cover letters using ChatGPT API.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage", "scripting"],
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
@@ -13,5 +13,8 @@
     "default_popup": "index.html",
     "default_title": "Open the popup"
   },
-  "host_permissions": ["https://*/", "https://www.linkedin.com/*"]
+  "host_permissions": ["https://*/", "https://www.linkedin.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
